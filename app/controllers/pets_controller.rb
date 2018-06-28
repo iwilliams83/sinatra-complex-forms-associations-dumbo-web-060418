@@ -7,12 +7,12 @@ class PetsController < ApplicationController
 
   get '/pets/new' do
     @owners = Owner.all
-    puts "I'm in /pets/new and here are my params: #{params}"
+    #puts "I'm in /pets/new and here are my params: #{params}"
     erb :'/pets/new'
   end
 
   post '/pets' do
-
+    puts "I'm in /pets and here are my params: #{params}"
     redirect to "pets/#{@pet.id}"
   end
 
