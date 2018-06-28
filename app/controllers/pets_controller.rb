@@ -18,7 +18,7 @@ class PetsController < ApplicationController
       @pet = Pet.create(name: params[:pet_name], owner_id: @owner.id)
     end
 
-    puts "I'm a pet: #{@pet}"
+    puts "I'm a pet: #{@pet.name}"
     redirect to "pets/#{@pet.id}"
   end
 
