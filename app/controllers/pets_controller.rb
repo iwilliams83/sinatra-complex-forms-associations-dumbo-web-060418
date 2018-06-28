@@ -12,11 +12,12 @@ class PetsController < ApplicationController
 
   post '/pets' do
     @owner = Owner.find(params[:owner_id])
+    @pet = Pet.create(name: params[:pet_name], owner_id: params[:owner_id])
     if @owner.nil?
       @owner = Owner.create(name: params[owner_name])
+      @pet = Pet.create(name: params[:pet_name], owner_id: @owner.id)
     end
 
-    @pet = Pet.create(name: params[:pet_name], owner_id: params[:owner_id])
     puts "I'm a pet: #{@pet}"
     redirect to "pets/#{@pet.id}"
   end
