@@ -11,7 +11,7 @@ class PetsController < ApplicationController
   end
 
   post '/pets' do
-    
+    puts "I'm in /pets and here are my params: #{params}"
     redirect to "pets/#{@pet.id}"
   end
 
