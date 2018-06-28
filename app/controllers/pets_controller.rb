@@ -7,6 +7,7 @@ class PetsController < ApplicationController
 
   get '/pets/new' do
     @owners = Owner.all
+    puts "I'm in /pets/new and here are my params: #{params}"
     erb :'/pets/new'
   end
 
