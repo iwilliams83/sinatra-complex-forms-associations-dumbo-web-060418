@@ -33,7 +33,15 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
-    puts "HEEEY I'm in the post! Params: #{params}"
+    @pet = Pet.find_by_id(params[:id])
+    if params[:owner_name] == ""
+      @pet.name = params[:pet_name]
+      @pet.save
+    else
+      @pet.name = params[:pet_name]
+      @pet.owner = params[:owner_name]
+      @pet.save
+    end
     redirect to "pets/#{@pet.id}"
   end
 end
