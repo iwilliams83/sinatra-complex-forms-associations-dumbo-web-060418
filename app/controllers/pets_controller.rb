@@ -11,7 +11,7 @@ class PetsController < ApplicationController
   end
 
   post '/pets' do
-    @owner = Owner.find(params[:owner_id])
+    @owner = Owner.find_by_id(params[:owner_id])
     @pet = Pet.create(name: params[:pet_name], owner_id: params[:owner_id])
     if @owner.nil?
       @owner = Owner.create(name: params[:owner_name])
