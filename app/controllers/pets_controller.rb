@@ -33,7 +33,7 @@ class PetsController < ApplicationController
   end
 
   post '/pets/:id' do
-
+    puts "HEEEY I'm in the post! Params: #{params}"
     redirect to "pets/#{@pet.id}"
   end
 end
