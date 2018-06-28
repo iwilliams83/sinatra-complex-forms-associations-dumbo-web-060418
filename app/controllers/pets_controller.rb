@@ -19,7 +19,7 @@ class PetsController < ApplicationController
     end
     @pet.save
 
-    puts "I'm a pet: #{@pet.name}"
+    puts "I'm a pet: #{@pet.name}, #{@pet.owner}"
     redirect to "pets/#{@pet.id}"
   end
 
