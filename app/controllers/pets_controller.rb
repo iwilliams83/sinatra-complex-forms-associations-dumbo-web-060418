@@ -39,7 +39,8 @@ class PetsController < ApplicationController
       @pet.save
     else
       @pet.name = params[:pet_name]
-      @pet.owner = params[:owner_name]
+      new_owner = Owner.create(name: params[:owner_name])
+      @pet.owner = new_owner
       @pet.save
     end
     redirect to "pets/#{@pet.id}"
